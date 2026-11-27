@@ -1,0 +1,10 @@
+Output: Export STEP
+Type  : ExportSTEP
+From  : Variant [Assembled] of PCB Document [RF_FILTER_PCB1.PcbDoc]
+   Generated File[RF_FILTER_PCB1(Assembled).step]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 3:44:11 PM On 11/27/2026

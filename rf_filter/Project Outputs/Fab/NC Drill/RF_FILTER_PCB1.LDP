@@ -1,0 +1,3 @@
+Layer Pairs Export File for PCB: C:\Projects\nova-solar-radio-receiver\rf_filter\RF_FILTER_PCB1.PcbDoc
+LayersSetName=Top_Bot_Plated_Thru_Holes|DrillFile=rf_filter_pcb1-roundholes-plated.txt|DrillLayers=gtl,gbl
+LayersSetName=Top_Bot_Plated_Slot_Holes|DrillFile=rf_filter_pcb1-slotholes-plated.txt|DrillLayers=gtl,gbl

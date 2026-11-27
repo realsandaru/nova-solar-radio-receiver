@@ -1,0 +1,83 @@
+Protel Design System Design Rule Check
+PCB File : C:\Projects\nova-solar-radio-receiver\rf_filter\RF_FILTER_PCB1.PcbDoc
+Date     : 11/27/2026
+Time     : 3:27:06 PM
+
+Processing Rule : Clearance Constraint (Gap=0.2mm) (InNetClass('RF_50R')),(InNet('GND'))
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=0.2mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.2mm) (Max=1mm) (Preferred=0.3mm) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.4mm) (Max=1mm) (Preferred=0.5mm) (InNet('+5V') or InNet('NetJ2_A9'))
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.254mm) (Max=0.976mm) (Preferred=0.976mm) (InNetClass('RF_50R'))
+Rule Violations :0
+
+Processing Rule : Routing Topology Rule(Topology=Shortest) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=0.025mm) (Max=3.5mm) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=0.5mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mm) (All)
+Rule Violations :0
+
+Processing Rule : Board Clearance Constraint (Gap=0mm) (All)
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
+Rule Violations :0
+
+Waived Violations Of Rule : Clearance Constraint (Gap=0.2mm) (All),(All)
+   Waived Violation between Clearance Constraint: (0.178mm < 0.2mm) Between Pad D1-1(103.6mm,65.727mm) on Top Layer And Pad D1-2(103.6mm,67.073mm) on Top Layer Waived by Sandaru Herath at 11/20/2026 9:55:28 PMD1 LED manufacturer footprint – 0.178 mm mask dam is within fab capability
+Waived Violations :1
+
+Waived Violations Of Rule : Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (0.178mm < 0.254mm) Between Pad D1-1(103.6mm,65.727mm) on Top Layer And Pad D1-2(103.6mm,67.073mm) on Top Layer [Top Solder] Mask Sliver [0.178mm]Waived by Sandaru Herath at 11/20/2026 9:59:20 PMD1 LED manufacturer footprint - 0.178 mm mask dam is within fab capability
+Waived Violations :1
+
+Waived Violations Of Rule : Board Clearance Constraint (Gap=0mm) (All)
+   Waived Violation between Board Outline Clearance(Outline Edge): (Collision < 0.3mm) Between Board Edge And Track (114.902mm,45.203mm)(122.136mm,45.203mm) on Top Overlay Waived by Sandaru Herath at 11/20/2026 9:56:48 PMConnector body (J1, J2, J3) overhangs board edge – intentional. Silkscreen outside board is clipped by fab
+   Waived Violation between Board Outline Clearance(Outline Edge): (Collision < 0.3mm) Between Board Edge And Track (114.902mm,50.918mm)(122.136mm,50.918mm) on Top Overlay Waived by Sandaru Herath at 11/20/2026 9:56:48 PMConnector body (J1, J2, J3) overhangs board edge – intentional. Silkscreen outside board is clipped by fab
+   Waived Violation between Board Outline Clearance(Outline Edge): (Collision < 0.3mm) Between Board Edge And Track (122.136mm,45.203mm)(122.136mm,50.918mm) on Top Overlay Waived by Sandaru Herath at 11/20/2026 9:56:48 PMConnector body (J1, J2, J3) overhangs board edge – intentional. Silkscreen outside board is clipped by fab
+   Waived Violation between Board Outline Clearance(Outline Edge): (Collision < 0.3mm) Between Board Edge And Track (16.864mm,45.203mm)(16.864mm,50.918mm) on Top Overlay Waived by Sandaru Herath at 11/20/2026 9:56:48 PMConnector body (J1, J2, J3) overhangs board edge – intentional. Silkscreen outside board is clipped by fab
+   Waived Violation between Board Outline Clearance(Outline Edge): (Collision < 0.3mm) Between Board Edge And Track (16.864mm,45.203mm)(24.098mm,45.203mm) on Top Overlay Waived by Sandaru Herath at 11/20/2026 9:56:48 PMConnector body (J1, J2, J3) overhangs board edge – intentional. Silkscreen outside board is clipped by fab
+   Waived Violation between Board Outline Clearance(Outline Edge): (Collision < 0.3mm) Between Board Edge And Track (16.864mm,50.918mm)(24.098mm,50.918mm) on Top Overlay Waived by Sandaru Herath at 11/20/2026 9:56:48 PMConnector body (J1, J2, J3) overhangs board edge – intentional. Silkscreen outside board is clipped by fab
+   Waived Violation between Board Outline Clearance(Outline Edge): (Collision < 0.3mm) Between Board Edge And Track (64.903mm,69.384mm)(64.903mm,70.981mm) on Top Overlay Waived by Sandaru Herath at 11/20/2026 9:56:48 PMConnector body (J1, J2, J3) overhangs board edge – intentional. Silkscreen outside board is clipped by fab
+   Waived Violation between Board Outline Clearance(Outline Edge): (Collision < 0.3mm) Between Board Edge And Track (64.903mm,70.981mm)(74.097mm,70.981mm) on Top Overlay Waived by Sandaru Herath at 11/20/2026 9:56:48 PMConnector body (J1, J2, J3) overhangs board edge – intentional. Silkscreen outside board is clipped by fab
+   Waived Violation between Board Outline Clearance(Outline Edge): (Collision < 0.3mm) Between Board Edge And Track (74.097mm,69.384mm)(74.097mm,70.981mm) on Top Overlay Waived by Sandaru Herath at 11/20/2026 9:56:48 PMConnector body (J1, J2, J3) overhangs board edge – intentional. Silkscreen outside board is clipped by fab
+Waived Violations :9
+
+
+Violations Detected : 0
+Waived Violations : 11
+Time Elapsed        : 00:00:00

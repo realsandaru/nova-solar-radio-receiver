@@ -1,0 +1,414 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD26\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">11/27/2026</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">3:27:06 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Projects\nova-solar-radio-receiver\rf_filter\RF_FILTER_PCB1.PcbDoc" class="file"><acronym title="C:\Projects\nova-solar-radio-receiver\rf_filter\RF_FILTER_PCB1.PcbDoc">C:\Projects\nova-solar-radio-receiver\rf_filter\RF_FILTER_PCB1.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Waived Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">11</td></tr>
+</table>
+</td>
+</table><a name="ID0DNS4EKUTBVDN4MV4LZXHN12CICUS2VTPVDZRLN4IM0UZQ1HR0G"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDY5DBBU3B2RAIM5S5MEM3IEP2PFHCDJNZNTHPHLCW53CA5RLNJCOE">Clearance Constraint (Gap=0.2mm) (InNetClass('RF_50R')),(InNet('GND'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDJC14H0XRPKZFMAZVYIAQHE1H1HX5IALHUJECAXMAXU1SPUXM51FC">Clearance Constraint (Gap=0.2mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDYCT4MLXQVCWNIHU1VMTSSVWSDKOFP0B5ST1BGOBZBCNZC203URBH">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID5HPMUWQGLSJEBU3UHUR5AGBQZDIEYK51T10I55P2VASN5OPEWKID">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDBZDII0AFK2V4LBUROWBWNU44VLP53MFLLZHUAXKZA00PQNZKJRG">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAN1CWORQXQHFO3SGWFXNDFQ0DH1BZGIRNHNFBTNKYBVQACOO0ARH">Width Constraint (Min=0.2mm) (Max=1mm) (Preferred=0.3mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDBLSFDJWLABQWPHCG5E5HQZDDWLJNAAQCS5ZO0IDR2YXWCEQM4WIH">Width Constraint (Min=0.4mm) (Max=1mm) (Preferred=0.5mm) (InNet('+5V') or InNet('NetJ2_A9'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDTIBYSHSQZOHPFBWFNCKQYGTLSKCWNMNK1PEWBZNBZGIT0OAMIFJE">Width Constraint (Min=0.254mm) (Max=0.976mm) (Preferred=0.976mm) (InNetClass('RF_50R'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDOK02OQBJUYASHJMWBSIYMJSNLJUSOMZ5UC0VJQMJV03AMS1AFIBH">Routing Topology Rule(Topology=Shortest) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDE2T20I21OATMNSXFTQYJ3IA01GBNC0PIVJ5LAECKO3GAUAKDE2M">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDLYZNX25IXN5IEJWBJHZMGRC5GE5GGZBVV1J0KPMFNHVVIMZNJFW">Hole Size Constraint (Min=0.025mm) (Max=3.5mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDXIY1RFYKPFYVL4ZWWZJURFYG0R1EPPTZEW4HGZ3ZOGVWHX43HF">Hole To Hole Clearance (Gap=0.5mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDGUAFLWLQFPMSJSVAYG0CJWSHRMGNJONRAQVSW03C3OSQGZAW2AM">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDMRYCSWJKXDWOJEIRFHTSIZUGEKVFHVW4UVFHVBPOJZXN0JJMBGL">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID3MTPKYROTBUALFQEJ4PGGNN4OMTVRYGZTSZKSKMVLTSPJ1YOOUKK">Silk to Silk (Clearance=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDDXVG40FWA4EWJSB4DIBHT4GYWJTU40LHBL1BYDMH3BGKCCYSXBFC">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID5055YJSENT13BJU3YIVYXSXFQE4BCP54DVNSEZNYORGIRB1KMVGM">Board Clearance Constraint (Gap=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDRWVX04EDXGFRJPT1ERIDKN0L0ZCTLPVR2SQ0IKLZGZ1ZZVCJ5LH">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Waived Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID5FCS1BBKI3YWJYGIFFTOKZ004OZ4OC2OP05ZXRMARIOWA4J0K0VB">Clearance Constraint (Gap=0.2mm) (All),(All)</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDJ2HHMEODUBEIMELAFE5MSYRC5KA2HYVSSQNKDDHKMCUONAH2V2DM">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDDEEHT1AXMLFUPS3CARL0CNWEGMBKYEXHWR4SHBIAJBFQCMITJC2L">Board Clearance Constraint (Gap=0mm) (All)</a></td>
+<td class="column2">9</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">11</td>
+</tr>
+</table><br><a name="IDUYTCTSGD1BFWOPQ1I0XJXJVVAD4COLKM4KK0GZDZKFLQWWDVPZUJ"><h2>Rule Violations</h2></a><a name="ID5JE1OSXEOVBBFGGROSXNCKQ20BQUY3IWC4R0AVI2TVHFN54DW0WL"><h2>Waived Violations</h2></a><a name="ID5FCS1BBKI3YWJYGIFFTOKZ004OZ4OC2OP05ZXRMARIOWA4J0K0VB"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="waived">Clearance Constraint (Gap=0.2mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Projects\nova-solar-radio-receiver\rf_filter\RF_FILTER_PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4093.678mil|Location2.X=4102.802mil|Location1.Y=2609.611mil|Location2.Y=2618.735mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Projects\nova-solar-radio-receiver\rf_filter\RF_FILTER_PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4093.678mil|Location2.X=4102.802mil|Location1.Y=2609.611mil|Location2.Y=2618.735mil|Absolute=True">Clearance Constraint: (0.178mm &lt; 0.2mm) Between Pad D1-1(103.6mm,65.727mm) on Top Layer And Pad D1-2(103.6mm,67.073mm) on Top Layer </acronym></a><br>Waived by Sandaru Herath at 11/20/2026 9:55:28 PM<br>D1 LED manufacturer footprint – 0.178 mm mask dam is within fab capability</td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDJ2HHMEODUBEIMELAFE5MSYRC5KA2HYVSSQNKDDHKMCUONAH2V2DM"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="waived">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Projects\nova-solar-radio-receiver\rf_filter\RF_FILTER_PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4092.615mil|Location2.X=4103.865mil|Location1.Y=2608.548mil|Location2.Y=2619.798mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Projects\nova-solar-radio-receiver\rf_filter\RF_FILTER_PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4092.615mil|Location2.X=4103.865mil|Location1.Y=2608.548mil|Location2.Y=2619.798mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.178mm &lt; 0.254mm) Between Pad D1-1(103.6mm,65.727mm) on Top Layer And Pad D1-2(103.6mm,67.073mm) on Top Layer [Top Solder] Mask Sliver [0.178mm]</acronym></a><br>Waived by Sandaru Herath at 11/20/2026 9:59:20 PM<br>D1 LED manufacturer footprint - 0.178 mm mask dam is within fab capability</td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDDEEHT1AXMLFUPS3CARL0CNWEGMBKYEXHWR4SHBIAJBFQCMITJC2L"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="waived">Board Clearance Constraint (Gap=0mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Projects\nova-solar-radio-receiver\rf_filter\RF_FILTER_PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4675.061mil|Location2.X=4683.935mil|Location1.Y=1775.189mil|Location2.Y=1784.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Projects\nova-solar-radio-receiver\rf_filter\RF_FILTER_PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4675.061mil|Location2.X=4683.935mil|Location1.Y=1775.189mil|Location2.Y=1784.063mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.3mm) Between Board Edge And Track (114.902mm,45.203mm)(122.136mm,45.203mm) on Top Overlay </acronym></a><br>Waived by Sandaru Herath at 11/20/2026 9:56:48 PM<br>Connector body (J1, J2, J3) overhangs board edge – intentional. Silkscreen outside board is clipped by fab</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Projects\nova-solar-radio-receiver\rf_filter\RF_FILTER_PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4675.061mil|Location2.X=4683.935mil|Location1.Y=2000.189mil|Location2.Y=2009.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Projects\nova-solar-radio-receiver\rf_filter\RF_FILTER_PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4675.061mil|Location2.X=4683.935mil|Location1.Y=2000.189mil|Location2.Y=2009.063mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.3mm) Between Board Edge And Track (114.902mm,50.918mm)(122.136mm,50.918mm) on Top Overlay </acronym></a><br>Waived by Sandaru Herath at 11/20/2026 9:56:48 PM<br>Connector body (J1, J2, J3) overhangs board edge – intentional. Silkscreen outside board is clipped by fab</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Projects\nova-solar-radio-receiver\rf_filter\RF_FILTER_PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4804.067mil|Location2.X=4812.941mil|Location1.Y=1887.689mil|Location2.Y=1896.563mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Projects\nova-solar-radio-receiver\rf_filter\RF_FILTER_PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4804.067mil|Location2.X=4812.941mil|Location1.Y=1887.689mil|Location2.Y=1896.563mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.3mm) Between Board Edge And Track (122.136mm,45.203mm)(122.136mm,50.918mm) on Top Overlay </acronym></a><br>Waived by Sandaru Herath at 11/20/2026 9:56:48 PM<br>Connector body (J1, J2, J3) overhangs board edge – intentional. Silkscreen outside board is clipped by fab</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Projects\nova-solar-radio-receiver\rf_filter\RF_FILTER_PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=659.5mil|Location2.X=668.374mil|Location1.Y=1887.689mil|Location2.Y=1896.563mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Projects\nova-solar-radio-receiver\rf_filter\RF_FILTER_PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=659.5mil|Location2.X=668.374mil|Location1.Y=1887.689mil|Location2.Y=1896.563mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.3mm) Between Board Edge And Track (16.864mm,45.203mm)(16.864mm,50.918mm) on Top Overlay </acronym></a><br>Waived by Sandaru Herath at 11/20/2026 9:56:48 PM<br>Connector body (J1, J2, J3) overhangs board edge – intentional. Silkscreen outside board is clipped by fab</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Projects\nova-solar-radio-receiver\rf_filter\RF_FILTER_PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=788.506mil|Location2.X=797.38mil|Location1.Y=1775.189mil|Location2.Y=1784.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Projects\nova-solar-radio-receiver\rf_filter\RF_FILTER_PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=788.506mil|Location2.X=797.38mil|Location1.Y=1775.189mil|Location2.Y=1784.063mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.3mm) Between Board Edge And Track (16.864mm,45.203mm)(24.098mm,45.203mm) on Top Overlay </acronym></a><br>Waived by Sandaru Herath at 11/20/2026 9:56:48 PM<br>Connector body (J1, J2, J3) overhangs board edge – intentional. Silkscreen outside board is clipped by fab</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Projects\nova-solar-radio-receiver\rf_filter\RF_FILTER_PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=788.506mil|Location2.X=797.38mil|Location1.Y=2000.189mil|Location2.Y=2009.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Projects\nova-solar-radio-receiver\rf_filter\RF_FILTER_PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=788.506mil|Location2.X=797.38mil|Location1.Y=2000.189mil|Location2.Y=2009.063mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.3mm) Between Board Edge And Track (16.864mm,50.918mm)(24.098mm,50.918mm) on Top Overlay </acronym></a><br>Waived by Sandaru Herath at 11/20/2026 9:56:48 PM<br>Connector body (J1, J2, J3) overhangs board edge – intentional. Silkscreen outside board is clipped by fab</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Projects\nova-solar-radio-receiver\rf_filter\RF_FILTER_PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2550.784mil|Location2.X=2559.657mil|Location1.Y=2782.254mil|Location2.Y=2791.128mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Projects\nova-solar-radio-receiver\rf_filter\RF_FILTER_PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2550.784mil|Location2.X=2559.657mil|Location1.Y=2782.254mil|Location2.Y=2791.128mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.3mm) Between Board Edge And Track (64.903mm,69.384mm)(64.903mm,70.981mm) on Top Overlay </acronym></a><br>Waived by Sandaru Herath at 11/20/2026 9:56:48 PM<br>Connector body (J1, J2, J3) overhangs board edge – intentional. Silkscreen outside board is clipped by fab</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Projects\nova-solar-radio-receiver\rf_filter\RF_FILTER_PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2731.784mil|Location2.X=2740.657mil|Location1.Y=2790.106mil|Location2.Y=2798.98mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Projects\nova-solar-radio-receiver\rf_filter\RF_FILTER_PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2731.784mil|Location2.X=2740.657mil|Location1.Y=2790.106mil|Location2.Y=2798.98mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.3mm) Between Board Edge And Track (64.903mm,70.981mm)(74.097mm,70.981mm) on Top Overlay </acronym></a><br>Waived by Sandaru Herath at 11/20/2026 9:56:48 PM<br>Connector body (J1, J2, J3) overhangs board edge – intentional. Silkscreen outside board is clipped by fab</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Projects\nova-solar-radio-receiver\rf_filter\RF_FILTER_PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2912.784mil|Location2.X=2921.657mil|Location1.Y=2782.254mil|Location2.Y=2791.128mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Projects\nova-solar-radio-receiver\rf_filter\RF_FILTER_PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2912.784mil|Location2.X=2921.657mil|Location1.Y=2782.254mil|Location2.Y=2791.128mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.3mm) Between Board Edge And Track (74.097mm,69.384mm)(74.097mm,70.981mm) on Top Overlay </acronym></a><br>Waived by Sandaru Herath at 11/20/2026 9:56:48 PM<br>Connector body (J1, J2, J3) overhangs board edge – intentional. Silkscreen outside board is clipped by fab</td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
